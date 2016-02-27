@@ -1,8 +1,8 @@
 //
 //  PasswordView.swift
 //
-//  Created by songshuang on 16/2/22.
-//  Copyright © 2016年 songshuang. All rights reserved.
+//  Created by Sayaka on 16/2/27.
+//  Copyright © 2016年 swift.moe. All rights reserved.
 //
 
 import UIKit
@@ -70,11 +70,6 @@ class PasswordView: UIView {
         borderView.layer.borderWidth = 1
         borderView.layer.cornerRadius = 5
     }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches, withEvent: event)
@@ -95,7 +90,6 @@ extension PasswordView {
             $0.hidden = false
         }
     }
-    
 }
 
 extension PasswordView: UITextFieldDelegate {
