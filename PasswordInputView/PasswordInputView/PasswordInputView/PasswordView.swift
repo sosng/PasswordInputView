@@ -22,6 +22,8 @@ class PasswordView: UIView {
     @IBOutlet weak var line3Width: NSLayoutConstraint!
     @IBOutlet weak var line4Width: NSLayoutConstraint!
 
+    
+    
     var indicators: [UIView] = []
     var inputedWords: [String] = [] {
         didSet {

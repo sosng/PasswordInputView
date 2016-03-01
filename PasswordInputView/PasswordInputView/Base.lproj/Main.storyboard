@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,27 +17,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahr-vZ-8pa" customClass="PasswordView" customModule="PasswordInputView" customModuleProvider="target">
-                                <rect key="frame" x="200" y="275" width="200" height="50"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="8V8-DV-8GO"/>
-                                    <constraint firstAttribute="width" constant="200" id="rCR-qY-fP3"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Tg-91-4dv" customClass="PasswordView" customModule="PasswordInputView" customModuleProvider="target">
+                                <rect key="frame" x="155" y="206" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ahr-vZ-8pa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mNB-ef-8SA"/>
-                            <constraint firstItem="ahr-vZ-8pa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tbu-re-gBw"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="passwordView" destination="ahr-vZ-8pa" id="1kH-1W-Tar"/>
+                        <outlet property="passwordView" destination="8Tg-91-4dv" id="JXH-I4-xRM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="450" y="428"/>
         </scene>
     </scenes>
 </document>

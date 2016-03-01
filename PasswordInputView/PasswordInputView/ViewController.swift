@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordView: PasswordView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        passwordView.inputClosure = { (inputPassword: String?) -> Void in
-            print(inputPassword)
+        passwordView.inputClosure = {(inputWords: String?) -> Void in
+            print(inputWords!)
         }
     }
 
