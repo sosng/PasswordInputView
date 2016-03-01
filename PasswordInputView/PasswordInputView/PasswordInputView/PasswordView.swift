@@ -56,13 +56,13 @@ class PasswordView: UIView {
     
     private func setupSubviews() {
         indicators = [indicator0, indicator1, indicator2, indicator3, indicator4, indicator5]
-        let _ = indicators.map{
+        indicators.forEach{
             $0.hidden = true
             $0.layer.cornerRadius = 5
             $0.layer.masksToBounds = true
         }
         
-        let _ = [line0Width, line1Width, line2Width, line3Width, line4Width].map{
+        [line0Width, line1Width, line2Width, line3Width, line4Width].forEach{
             $0.constant = 1.0 / UIScreen.mainScreen().scale
         }
         
@@ -85,8 +85,10 @@ class PasswordView: UIView {
 extension PasswordView {
     private func updateIndocator(stringLength: Int) {
         if stringLength > 6 { return }
-        let _ = indicators.map{ $0.hidden = true }
-        let _ = indicators[0..<stringLength].map{
+        indicators.forEach{
+            $0.hidden = true
+        }
+        indicators[0..<stringLength].forEach{
             $0.hidden = false
         }
     }
