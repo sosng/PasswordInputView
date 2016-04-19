@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PasswordView: UIView {
+@IBDesignable class PasswordView: UIView {
     
     @IBOutlet weak var indicator0: UIView!
     @IBOutlet weak var indicator1: UIView!
@@ -15,27 +15,45 @@ class PasswordView: UIView {
     @IBOutlet weak var indicator3: UIView!
     @IBOutlet weak var indicator4: UIView!
     @IBOutlet weak var indicator5: UIView!
+    @IBOutlet weak var line0: UIView!
+    @IBOutlet weak var line1: UIView!
+    @IBOutlet weak var line2: UIView!
+    @IBOutlet weak var line3: UIView!
+    @IBOutlet weak var line4: UIView!
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var line0Width: NSLayoutConstraint!
     @IBOutlet weak var line1Width: NSLayoutConstraint!
     @IBOutlet weak var line2Width: NSLayoutConstraint!
     @IBOutlet weak var line3Width: NSLayoutConstraint!
     @IBOutlet weak var line4Width: NSLayoutConstraint!
-
+    @IBOutlet weak var inputTextFiled: UITextField!
     
-    
-    var indicators: [UIView] = []
-    var inputedWords: [String] = [] {
+    @IBInspectable var borderColor: UIColor = UIColor.lightGrayColor() {
         didSet {
-            print(inputedWords)
-            updateIndocator(inputedWords.count)
-            inputClosure?(inputPassword: inputedWords.joinWithSeparator(""))
+           borderView.layer.borderColor = borderColor.CGColor
         }
     }
     
-    @IBOutlet weak var inputTextFiled: UITextField!
+    @IBInspectable var lineColor: UIColor = UIColor.lightGrayColor() {
+        didSet {
+            [line0, line1, line2, line3, line4].forEach{$0.backgroundColor = lineColor}
+        }
+    }
     
+    @IBInspectable var indicatorColor: UIColor = UIColor.blackColor() {
+        didSet {
+            indicators.forEach{$0.backgroundColor = indicatorColor}
+        }
+    }
+    
+    var indicators: [UIView] = []
     var inputClosure: ((inputPassword: String?) -> ())?
+    var inputedWords: [String] = [] {
+        didSet {
+            updateIndicators(inputedWords.count)
+            inputClosure?(inputPassword: inputedWords.joinWithSeparator(""))
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,7 +68,7 @@ class PasswordView: UIView {
     }
     
     private func loadNib() {
-        let nibView = UINib(nibName: "PasswordView", bundle: NSBundle.mainBundle()).instantiateWithOwner(self, options: nil).first as! UIView
+        let nibView = NSBundle(forClass: self.classForCoder).loadNibNamed("PasswordView", owner: self, options: nil).first as! UIView
         nibView.frame = self.bounds
         nibView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(nibView)
@@ -68,7 +86,7 @@ class PasswordView: UIView {
             $0.constant = 1.0 / UIScreen.mainScreen().scale
         }
         
-        borderView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        borderView.layer.borderColor = self.borderColor.CGColor
         borderView.layer.borderWidth = 1
         borderView.layer.cornerRadius = 5
     }
@@ -85,7 +103,7 @@ class PasswordView: UIView {
 }
 
 extension PasswordView {
-    private func updateIndocator(stringLength: Int) {
+    private func updateIndicators(stringLength: Int) {
         if stringLength > 6 { return }
         indicators.forEach{
             $0.hidden = true
